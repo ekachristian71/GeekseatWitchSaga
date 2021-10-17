@@ -1,7 +1,9 @@
-# Getting Started
+# The story: Geekseat Witch Saga: Return of The Coder!
+
+## Code Repository : [Link](https://github.com/ekachristian71/GeekseatWitchSaga)
 
 ### API Url : localhost:8080/villager/result
-###Request Method : POST
+### Request Method : POST
 
 ### Sample request & response
 
