@@ -71,8 +71,8 @@ class WitchsagaApplicationTests {
     expectedResponse.setResult(4.5);
 
     VillagersResponse actualResponse = theVillagerServiceImpl.getFinalResult(request);
-    System.out.println("Actual : " + actualResponse.getResult());
-    System.out.println("Expected : " + expectedResponse.getResult());
+    System.out.println("Actual Response : " + actualResponse.getResult());
+    System.out.println("Expected Response : " + expectedResponse.getResult());
 
     Assertions.assertEquals(expectedResponse.getResult(), actualResponse.getResult());
   }
