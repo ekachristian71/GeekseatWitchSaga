@@ -6,7 +6,7 @@ import com.geekseat.witchsaga.module.controller.VillagersResponse;
 import com.geekseat.witchsaga.module.model.VillagerKilled;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service("TheVillagerService")
 public class TheVillagerServiceImpl implements TheVillagerService {
 
   @Override
