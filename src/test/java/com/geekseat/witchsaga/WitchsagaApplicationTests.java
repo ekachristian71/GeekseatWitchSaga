@@ -1,14 +1,20 @@
 package com.geekseat.witchsaga;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import com.geekseat.witchsaga.module.controller.VillagerResponse;
 import com.geekseat.witchsaga.module.controller.VillagersRequest;
 import com.geekseat.witchsaga.module.controller.VillagersResponse;
 import com.geekseat.witchsaga.module.model.VillagerKilled;
 import com.geekseat.witchsaga.module.service.TheVillagerServiceImpl;
+import nl.jqno.equalsverifier.EqualsVerifier;
+import nl.jqno.equalsverifier.internal.util.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @ExtendWith(MockitoExtension.class)
 class WitchsagaApplicationTests {
@@ -42,7 +48,7 @@ class WitchsagaApplicationTests {
 
     VillagersResponse actualResponse = theVillagerServiceImpl.getFinalResult(request);
 
-    Assertions.assertEquals(expectedResponse.getResult(), actualResponse.getResult());
+    assertEquals(expectedResponse.getResult(), actualResponse.getResult());
   }
 
   @Test
@@ -57,7 +63,7 @@ class WitchsagaApplicationTests {
 
     VillagersResponse actualResponse = theVillagerServiceImpl.getFinalResult(request);
 
-    Assertions.assertEquals(expectedResponse.getResult(), actualResponse.getResult());
+    assertEquals(expectedResponse.getResult(), actualResponse.getResult());
   }
 
   @Test
@@ -68,13 +74,66 @@ class WitchsagaApplicationTests {
     VillagersRequest request = buildRequest(villagerKilled1, villagerKilled2);
 
     VillagersResponse expectedResponse = new VillagersResponse();
-    expectedResponse.setResult(4.5);
+    expectedResponse.setResult(2.0);
 
     VillagersResponse actualResponse = theVillagerServiceImpl.getFinalResult(request);
     System.out.println("Actual Response : " + actualResponse.getResult());
     System.out.println("Expected Response : " + expectedResponse.getResult());
 
-    Assertions.assertEquals(expectedResponse.getResult(), actualResponse.getResult());
+    assertEquals(expectedResponse.getResult(), actualResponse.getResult());
+  }
+
+  @Test
+  public void testEqualsObjectVillagersResponse() {
+    EqualsVerifier.simple().forClass(VillagersResponse.class).verify();
+  }
+
+  @Test
+  public void testEqualsObjectVillagersRequest() {
+    EqualsVerifier.simple().forClass(VillagersRequest.class).verify();
+  }
+
+  @Test
+  public void testEqualsObjectVillagesResponse() {
+    EqualsVerifier.simple().forClass(VillagerResponse.class).verify();
+  }
+
+  @Test
+  public void testEqualsObjectVillagerKilled() {
+    EqualsVerifier.simple().forClass(VillagerKilled.class).verify();
+  }
+
+  @Test
+  public void testToStringVillagersRequest() {
+    VillagersRequest request1 = new VillagersRequest();
+    VillagersRequest request2 = new VillagersRequest();
+    assertEquals(request1.toString(), request2.toString());
+  }
+
+  @Test
+  public void testToStringVillagersResponse() {
+    VillagersResponse request1 = new VillagersResponse();
+    VillagersResponse request2 = new VillagersResponse();
+    assertEquals(request1.toString(), request2.toString());
+  }
+
+  @Test
+  public void testToStringVillagerResponse() {
+    VillagerResponse request1 = new VillagerResponse();
+    VillagerResponse request2 = new VillagerResponse();
+    assertEquals(request1.toString(), request2.toString());
+  }
+
+  @Test
+  public void testToStringVillagerKilled() {
+    VillagerKilled request1 = new VillagerKilled();
+    VillagerKilled request2 = new VillagerKilled();
+    assertEquals(request1.toString(), request2.toString());
+  }
+
+  @Test
+  public void testSpringBootApp(){
+    WitchsagaApplication.main(new String[] {});
   }
 
 }
