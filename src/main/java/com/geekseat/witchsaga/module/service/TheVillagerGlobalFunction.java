@@ -6,24 +6,17 @@ import java.util.Map;
 
 public class TheVillagerGlobalFunction {
 
-  private static final Map<Integer, Integer> memo = new HashMap<>();
+  static int[] fib;
 
   public static Integer getTotalKilledVillager(int year) {
-    if (year == 0 || year == 1) {
-      return year;
+    fib = new int[year + 1];
+    fib[0] = 1;
+    fib[1] = 1;
+
+    for(int i = 2; i <= year; i++) {
+      fib[i] = fib[i-1] + fib[i-2];
     }
-
-    if (memo.containsKey(year)) {
-      System.out.printf("Ambil memo hashmap [%d]\n", year);
-      return memo.get(year);
-    }
-
-    System.out.printf("Hitung ulang fibonacci (%d)\n",year);
-    int result = getTotalKilledVillager(year - 1) + getTotalKilledVillager(year - 2);
-
-    // memoize
-    memo.put(year, result);
-    return result;
+    return fib[year];
   }
 
   public static Double getAverage(VillagerKilled villager1,
