@@ -44,7 +44,7 @@ class WitchsagaApplicationTests {
     VillagersRequest request = buildRequest(villagerKilled1, villagerKilled2);
 
     VillagersResponse expectedResponse = new VillagersResponse();
-    expectedResponse.setResult(-1D);
+    expectedResponse.setResult(-1);
 
     VillagersResponse actualResponse = theVillagerServiceImpl.getFinalResult(request);
 
@@ -59,7 +59,7 @@ class WitchsagaApplicationTests {
     VillagersRequest request = buildRequest(villagerKilled1, villagerKilled2);
 
     VillagersResponse expectedResponse = new VillagersResponse();
-    expectedResponse.setResult(-1D);
+    expectedResponse.setResult(-1);
 
     VillagersResponse actualResponse = theVillagerServiceImpl.getFinalResult(request);
 
@@ -74,7 +74,7 @@ class WitchsagaApplicationTests {
     VillagersRequest request = buildRequest(villagerKilled1, villagerKilled2);
 
     VillagersResponse expectedResponse = new VillagersResponse();
-    expectedResponse.setResult(2.0);
+    expectedResponse.setResult(2.0F);
 
     VillagersResponse actualResponse = theVillagerServiceImpl.getFinalResult(request);
     System.out.println("Actual Response : " + actualResponse.getResult());

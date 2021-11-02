@@ -7,6 +7,6 @@ public class VillagersResponse {
 
   private VillagerResponse villager1;
   private VillagerResponse villager2;
-  private Double result;
+  private float result;
 
 }

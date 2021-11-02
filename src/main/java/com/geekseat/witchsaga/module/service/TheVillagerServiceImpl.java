@@ -19,7 +19,7 @@ public class TheVillagerServiceImpl implements TheVillagerService {
 
       buildAverageResultSuccessResponse(request, response, villager1, villager2);
     } else {
-      response.setResult(-1D);
+      response.setResult(-1);
     }
     return response;
   }
