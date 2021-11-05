@@ -7,18 +7,36 @@ public class TheVillagerGlobalFunction {
   static int[] fib;
 
   public static Integer getTotalKilledVillager(int year) {
-    int containerA = 0;
-    int containerB = 1;
-    int containerC;
-    if (year == 0) {
-      return containerA;
+//    int containerA = 0;
+//    int containerB = 1;
+//    int containerC;
+//    if (year == 0 || year == 1) {
+//      return year;
+//    }
+//    for (int i = 1; i <= year; i++) {
+//      containerC = containerA + containerB;
+//      containerA = containerB;
+//      containerB = containerC;
+//    }
+//    return containerB;
+    if (year <= 0) {
+      return 0;
     }
-    for (int i = 1; i <= year; i++) {
-      containerC = containerA + containerB;
-      containerA = containerB;
-      containerB = containerC;
+
+    int[] fibo = new int[year + 1];
+    fibo[0] = 0;
+    fibo[1] = 1;
+
+    // Initialize result
+    int sum = fibo[0] + fibo[1];
+
+    // Add remaining terms
+    for (int i = 2; i <= year; i++) {
+      fibo[i] = fibo[i - 1] + fibo[i - 2];
+      sum += fibo[i];
     }
-    return containerB;
+
+    return sum;
   }
 
   public static float getAverage(VillagerKilled villager1,
