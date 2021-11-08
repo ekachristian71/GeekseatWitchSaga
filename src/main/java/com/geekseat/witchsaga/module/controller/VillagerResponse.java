@@ -1,6 +1,7 @@
 package com.geekseat.witchsaga.module.controller;
 
 import com.geekseat.witchsaga.module.model.VillagerKilled;
+import java.math.BigInteger;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -8,5 +9,5 @@ import lombok.EqualsAndHashCode;
 @Data
 public class VillagerResponse extends VillagerKilled {
 
-  private Integer totalKilledVillagerPerYear;
+  private BigInteger totalKilledVillagerPerYear;
 }

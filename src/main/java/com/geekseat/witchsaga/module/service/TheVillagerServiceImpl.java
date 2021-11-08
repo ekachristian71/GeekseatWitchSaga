@@ -4,6 +4,7 @@ import com.geekseat.witchsaga.module.controller.VillagerResponse;
 import com.geekseat.witchsaga.module.controller.VillagersRequest;
 import com.geekseat.witchsaga.module.controller.VillagersResponse;
 import com.geekseat.witchsaga.module.model.VillagerKilled;
+import java.math.BigInteger;
 import org.springframework.stereotype.Service;
 
 @Service("TheVillagerService")
@@ -19,7 +20,7 @@ public class TheVillagerServiceImpl implements TheVillagerService {
 
       buildAverageResultSuccessResponse(request, response, villager1, villager2);
     } else {
-      response.setResult(-1);
+      response.setResult(BigInteger.valueOf(-1).floatValue());
     }
     return response;
   }
@@ -48,7 +49,7 @@ public class TheVillagerServiceImpl implements TheVillagerService {
     personResponse.setAgeOfDeath(villagerKilled.getAgeOfDeath());
     personResponse.setYearOfDeath(villagerKilled.getYearOfDeath());
 
-    Integer totalKilled = TheVillagerGlobalFunction.getTotalKilledVillager(
+    BigInteger totalKilled = TheVillagerGlobalFunction.getTotalKilledVillager(
         villagerKilled.getYearOfDeath() - villagerKilled.getAgeOfDeath());
 
     personResponse.setTotalKilledVillagerPerYear(totalKilled);

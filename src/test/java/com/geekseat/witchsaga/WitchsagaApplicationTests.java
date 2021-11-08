@@ -7,6 +7,7 @@ import com.geekseat.witchsaga.module.controller.VillagersRequest;
 import com.geekseat.witchsaga.module.controller.VillagersResponse;
 import com.geekseat.witchsaga.module.model.VillagerKilled;
 import com.geekseat.witchsaga.module.service.TheVillagerServiceImpl;
+import java.math.BigInteger;
 import nl.jqno.equalsverifier.EqualsVerifier;
 import nl.jqno.equalsverifier.internal.util.Assert;
 import org.junit.jupiter.api.Assertions;
@@ -44,7 +45,7 @@ class WitchsagaApplicationTests {
     VillagersRequest request = buildRequest(villagerKilled1, villagerKilled2);
 
     VillagersResponse expectedResponse = new VillagersResponse();
-    expectedResponse.setResult(-1);
+    expectedResponse.setResult(BigInteger.valueOf(-1).floatValue());
 
     VillagersResponse actualResponse = theVillagerServiceImpl.getFinalResult(request);
 
@@ -59,7 +60,7 @@ class WitchsagaApplicationTests {
     VillagersRequest request = buildRequest(villagerKilled1, villagerKilled2);
 
     VillagersResponse expectedResponse = new VillagersResponse();
-    expectedResponse.setResult(-1);
+    expectedResponse.setResult(BigInteger.valueOf(-1).floatValue());
 
     VillagersResponse actualResponse = theVillagerServiceImpl.getFinalResult(request);
 
@@ -74,7 +75,7 @@ class WitchsagaApplicationTests {
     VillagersRequest request = buildRequest(villagerKilled1, villagerKilled2);
 
     VillagersResponse expectedResponse = new VillagersResponse();
-    expectedResponse.setResult(2.0F);
+    expectedResponse.setResult(BigInteger.valueOf(2).floatValue());
 
     VillagersResponse actualResponse = theVillagerServiceImpl.getFinalResult(request);
     System.out.println("Actual Response : " + actualResponse.getResult());
